@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wcx.excelword.dao.ExcelDAO">
+    <resultMap id="BaseResultMapper" type="com.wcx.excelword.entity.ExcelInfo">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="width" jdbcType="INTEGER" property="width"/>
+        <result column="height" jdbcType="INTEGER" property="height"/>
+        <result column="content" jdbcType="VARCHAR" property="content"/>
+        <result column="isvisible" jdbcType="INTEGER" property="isvisible"/>
+        <result column="issuccess" jdbcType="INTEGER" property="issuccess"/>
+        <result column="createtime" property="createtime" jdbcType="TIMESTAMP"/>
+        <result column="updatetime" property="updatetime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Result_List">
+        id, width , height , isvisible , issuccess , content , createtime ,updatetime
+    </sql>
+<!--添加-->
+    <insert id="insert" parameterType="com.wcx.excelword.dao.ExcelDAO">
+    insert into excel_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+        <if test="id != null">
+            id,
+        </if>
+        <if test="width != null">
+            width,
+        </if>
+        <if test="height != null">
+            height,
+        </if>
+        <if test="isvisible != null">
+            isvisible,
+        </if>
+        <if test="issuccess != null">
+            issuccess,
+        </if>
+        <if test="content != null">
+            content,
+        </if>
+        <if test="createtime != null">
+            createtime,
+        </if>
+        <if test="updatetime != null">
+            updatetime,
+        </if>
+    </trim>
+    </insert>
+<!--修改-->
+    <update id="updateByUsername" parameterType="com.wcx.excelword.dao.ExcelDAO">
+    update excel_info
+
+    </update>
+
+
+</mapper>
